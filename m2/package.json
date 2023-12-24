@@ -1,0 +1,13 @@
+{
+	"name": "@green-rabbit/m2",
+	"version": "0.0.1",
+	"main": "main.js",
+	"scripts": {
+		"start": "node main.js"
+	},
+	"dependencies": {
+		"amqplib": "^0.10.3"
+	},
+	"private": true,
+	"author": "Dmitry Maksimetny <maksimetny@gmail.com>"
+}

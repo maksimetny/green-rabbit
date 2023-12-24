@@ -1,0 +1,10 @@
+{
+	"name": "green-rabbit",
+	"version": "0.0.1",
+	"workspaces": [
+		"m1",
+		"m2"
+	],
+	"private": true,
+	"author": "Dmitry Maksimetny <maksimetny@gmail.com>"
+}
