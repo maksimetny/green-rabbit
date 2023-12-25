@@ -1,6 +1,7 @@
 const express = require('express');
 const { AmqpClient } = require('../amqp');
 const { getEnv } = require('../util');
+const { logger } = require('../logger');
 
 async function bootstrap() {
 	const PORT = getEnv('PORT', 5000);
@@ -26,14 +27,18 @@ async function bootstrap() {
 	});
 
 	process.once('SIGINT', async () => {
+		logger.info('Shutting down');
 		await amqp.destroy();
 		process.exit();
 	});
 
-	app.listen(PORT);
+	app.listen(PORT, () => {
+		logger.info(`Server listening on port ${PORT}`);
+	});
 }
 
 bootstrap().catch((e) => {
 	console.error(e);
+	logger.error('Fatal error!', { error: e });
 	process.exit(1);
 });
