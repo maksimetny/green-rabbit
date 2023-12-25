@@ -1,6 +1,6 @@
 const { EventEmitter } = require('node:events');
+const crypto = require('node:crypto');
 const amqp = require('amqplib');
-const crypto = require('crypto');
 
 /**
  * @template I
